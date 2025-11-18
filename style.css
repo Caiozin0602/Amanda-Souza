@@ -1,0 +1,67 @@
+/*Fontes*/
+font-face{
+    font-family: 'RotinsSansSerif', sans-serif;
+    src: url('Fonts\Sans Serif\rotis-sans-serif-extra-bold-75.otf');
+    font-weight: extra-bold;
+    font-style: normal;
+}
+/* Reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Header*/
+header{
+    background-color: transparent;
+    padding: 20px;
+    padding-left: 220px;
+    padding-right: 220px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 70px;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.botoesNav{
+    text-decoration: none;
+    color: black;
+    font-size: 26px;
+}
+/*Header*/
+/**/
+/* Main*/
+main{
+    height: 100vh;
+}
+#titulo{
+    font-family: 'RotinsSansSerif', sans-serif;
+    letter-spacing: 15px;
+    format:('opentype');
+    font-size: 45px;
+}
+.pgIcinal{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}   
+/*Footer*/
+footer{
+    background-color: rgb(255, 255, 255);
+    border-top: 1px solid black;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: black;
+    background-color: rgb(255, 26, 217);
+    border-radius: 20px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
