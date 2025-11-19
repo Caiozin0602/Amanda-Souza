@@ -4,74 +4,248 @@
     font-weight: 700;
     font-style: normal;
 }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-/* Reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
 body {
     font-family: 'RotinsSansSerif', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     color: #111;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Full page + subtle gradient */
-.page { position: relative; min-height: 100vh; display: grid; place-items: center; overflow: hidden; }
+/* Cabeçalho */
+.page {
+    padding-top: 8px;
+}
+
+header {
+    width: 100%;
+    padding: 10px 18px;
+    padding-left: 120px;
+    padding-right: 120px;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 70px;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.botoesNav {
+    text-decoration: none;
+    color: #222;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.logo img {
+    vertical-align: middle;
+    display: block;
+}
+
+/* Fim do cabeçalho */
+
+/* Página inteira + gradiente sutil */
+.page {
+    position: relative;
+    min-height: 80vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
 .bg {
-    position: absolute; inset: 0; z-index: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 0;
     background: linear-gradient(120deg, #f7d6e0 0%, #ffd7c2 45%, #f0e9ff 100%);
 }
 
-/* Central container with glassy blur */
+/* Container central com efeito glass (desfoque) */
 .container {
-    position: relative; z-index: 2;
-    width: 92%; max-width: 420px; margin: 24px;
-    background: rgba(255,255,255,0.55);
-    border-radius: 16px; padding: 28px 22px; box-shadow: 0 10px 30px rgba(15,15,15,0.12);
+    position: relative;
+    z-index: 2;
+    width: 92%;
+    max-width: 420px;
+    margin: 24px;
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 16px;
+    padding: 28px 22px;
+    box-shadow: 0 10px 30px rgba(15, 15, 15, 0.12);
     backdrop-filter: blur(8px);
 }
 
 #voltar {
-    display: inline-block; text-decoration: none; color: #333; font-weight: 600; margin-bottom: 8px;
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
-form { display: grid; gap: 18px; }
-form h1 { font-size: 1.4rem; margin: 6px 0 6px; text-align: center; }
+form {
+    display: grid;
+    gap: 18px;
+}
 
-/* Field with floating label */
-.field { position: relative; }
+form h1 {
+    font-size: 1.4rem;
+    margin: 6px 0 6px;
+    text-align: center;
+}
+
+/* Campo com label flutuante */
+.field {
+    position: relative;
+}
+
 .field input {
-    width: 100%; padding: 14px 12px; border-radius: 10px; border: 1px solid rgba(17,17,17,0.12);
-    background: rgba(255,255,255,0.7); outline: none; transition: box-shadow .18s ease, transform .12s ease;
+    width: 100%;
+    padding: 14px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    background: rgba(255, 255, 255, 0.7);
+    outline: none;
+    transition: box-shadow .18s ease, transform .12s ease;
     font-size: 1rem;
 }
-.field input:focus { box-shadow: 0 4px 18px rgba(17,17,17,0.08); transform: translateY(-1px); }
 
+.field input:focus {
+    box-shadow: 0 4px 18px rgba(17, 17, 17, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Estilos para select, date e time */
+.field select,
+.field input[type="date"],
+.field input[type="time"] {
+    width: 100%;
+    padding: 12px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(17, 17, 17, 0.12);
+    background: rgba(255, 255, 255, 0.85);
+    outline: none;
+    font-size: 1rem;
+    appearance: none;
+}
+
+.field select:focus,
+.field input[type="date"]:focus,
+.field input[type="time"]:focus {
+    box-shadow: 0 4px 18px rgba(17, 17, 17, 0.08);
+    transform: translateY(-1px);
+}
+
+/* Subir o label quando select/date/time estiverem focados ou válidos */
+.field select:focus+label,
+.field select:valid+label,
+.field input[type="date"]:focus+label,
+.field input[type="date"]:valid+label,
+.field input[type="time"]:focus+label,
+.field input[type="time"]:valid+label {
+    top: -8px;
+    transform: translateY(0);
+    font-size: 0.78rem;
+    color: #b65a8e;
+}
+
+/* Estilo padrão dos labels flutuantes */
 .field label {
-    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
-    background: transparent; padding: 0 6px; color: #666; pointer-events: none;
-    transition: transform .18s cubic-bezier(.2,.9,.3,1), font-size .18s, top .18s, color .18s;
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    padding: 0 6px;
+    color: #666;
+    pointer-events: none;
+    transition: transform .18s cubic-bezier(.2, .9, .3, 1), font-size .18s, top .18s, color .18s;
 }
 
-/* When input is focused or has text, move label up */
-.field input:focus + label,
-.field input:not(:placeholder-shown) + label {
-    top: -8px; transform: translateY(0); font-size: 0.78rem; color: #b65a8e;
+/* Para selects: não queremos que o label flutuante sobreponha o texto.
+   O label ficará fixo na borda superior do select (estilo 'legend'). */
+.field.select-field label {
+    /* label fixo sobre a borda superior do select */
+    position: absolute;
+    top: -9px;
+    left: 12px;
+    transform: translateY(0);
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 0.78rem;
+    color: #666; /* mesma cor padrão dos outros labels */
+    background: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    z-index: 3;
 }
 
-.field small.error { display: block; margin-top: 6px; color: #b00020; font-size: 0.82rem; min-height: 18px; }
+.field.select-field select {
+    appearance: menulist;
+    padding-right: 36px; /* espaço para o caret padrão */
+}
+
+/* Colorir o label do select como os demais quando focado ou válido */
+.field.select-field:focus-within label,
+.field.select-field select:valid+label,
+.field.select-field select:focus+label {
+    color: #b65a8e;
+}
+
+/* Quando o input estiver focado ou com texto, mover o label para cima */
+.field input:focus+label,
+.field input:not(:placeholder-shown)+label {
+    top: -8px;
+    transform: translateY
+    (0);
+    font-size: 0.78rem;
+    color: #b65a8e;
+}
+
+.field small.error {
+    display: block;
+    margin-top: 6px;
+    color: #b00020;
+    font-size: 0.82rem;
+    min-height: 18px;
+}
 
 .btn {
-    width: 100%; padding: 12px 16px; border-radius: 12px; border: none; cursor: pointer;
-    background: linear-gradient(90deg,#b65a8e,#ff7b7b); color: #fff; font-weight: 700; font-size: 1rem;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, #b65a8e, #ff7b7b);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
     transition: transform .15s ease, box-shadow .15s ease;
 }
-.btn:active { transform: scale(.99); }
 
-/* small responsive tweaks */
-@media (min-width: 700px) {
-    .container { max-width: 480px; }
+.btn:active {
+    transform: scale(.99);
 }
 
-/* Accessibility focus */
-.field input:focus { box-shadow: 0 0 0 3px rgba(182,90,142,0.12); }
+/* Ajustes responsivos pequenos */
+@media (min-width: 700px) {
+    .container {
+        max-width: 480px;
+    }
+}
+
+/* Foco acessível */
+.field input:focus {
+    box-shadow: 0 0 0 3px rgba(182, 90, 142, 0.12);
+}

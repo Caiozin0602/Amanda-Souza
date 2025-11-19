@@ -1,41 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agendar — Studio Amanda Souza</title>
-    <link rel="stylesheet" href="agendar.css">
-  </head>
-  <body>
-    <main class="page">
-      <div class="bg"></div>
-      <section class="container">
-        <a href="index.html" id="voltar">← Voltar</a>
 
-        <form id="form-agendar" novalidate>
-          <h1>Agendar Atendimento</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendar — Studio Amanda Souza</title>
+  <link rel="stylesheet" href="agendar.css">
+</head>
 
-          <div class="field">
-            <input id="nome" name="nome" type="text" placeholder=" " required />
-            <label for="nome">Nome</label>
-          </div>
+<body>
+  <main class="page">
+    <header>
+      <nav class="navbar">
+        <div>
+          <a href="index.html" class="botoesNav logo"><img src="./Imagens/Logo_Studio.png"
+              alt="Studio Amanda Souza Logo" width="70"></a>
+        </div>
+        <div>
+          <a href="sobre.html" class="botoesNav">Sobre</a>
+        </div>
+        <div>
+          <a href="serviços.html" class="botoesNav">Serviços</a>
+        </div>
+        <div>
+          <a href="curso.html" class="botoesNav">Curso</a>
+        </div>
+        <div>
+          <a href="agendar.html" class="botoesNav">Agendar</a>
+        </div>
+      </nav>
+    </header>
 
-          <div class="field">
-            <input id="email" name="email" type="email" placeholder=" " required />
-            <label for="email">E-mail</label>
-          </div>
+    <div class="bg"></div>
 
-          <div class="field">
-            <input id="telefone" name="telefone" type="tel" inputmode="numeric" placeholder=" " minlength="10" maxlength="11" pattern="\d{10,11}" required />
-            <label for="telefone">Telefone (somente números)</label>
-            <small class="error" aria-live="polite"></small>
-          </div>
+    <section class="container">
 
-          <button type="submit" class="btn">Agendar</button>
-        </form>
-      </section>
-    </main>
+      <form id="form-agendar" novalidate>
+        <h1>Agendar Atendimento</h1>
 
-    <script src="script.js"></script>
-  </body>
+        <div class="field">
+          <input id="nome" name="nome" type="text" placeholder=" " required />
+          <label for="nome">Nome</label>
+        </div>
+
+        <div class="field">
+          <input id="email" name="email" type="email" placeholder=" " required />
+          <label for="email">E-mail</label>
+        </div>
+
+        <div class="field">
+          <input id="telefone" name="telefone" type="tel" inputmode="numeric" placeholder=" " required />
+          <label for="telefone">Telefone (somente números)</label>
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <div class="field">
+          <input id="data" name="data" type="date" placeholder=" " required />
+          <label for="data">Data</label>
+        </div>
+
+        <div class="field">
+          <input id="horario" name="horario" type="time" min="08:00" max="18:00" step="1800" placeholder=" " required />
+          <label for="horario">Horário (08:00–18:00)</label>
+        </div>
+
+        <div class="field select-field">
+          <select id="selecao" name="selecao" required>
+            <option value="" disabled selected>Escolha uma opção</option>
+            <option value="ex1">ex1</option>
+            <option value="ex2">ex2</option>
+          </select>
+          <label for="selecao">Seleção</label>
+        </div>
+
+        <button type="submit" class="btn">Agendar</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="agendar.js"></script>
+</body>
+
 </html>
