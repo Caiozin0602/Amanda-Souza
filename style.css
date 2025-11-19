@@ -43,14 +43,12 @@ header {
     padding-left: 70px;
     padding-right: 70px;
 }
-
 .botoesNav {
     text-decoration: none;
     color: #222;
     font-size: 26px;
     font-weight: 600;
 }
-
 .logo img {
     vertical-align: middle;
     display: block;
